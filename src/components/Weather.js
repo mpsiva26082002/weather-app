@@ -8,7 +8,7 @@ function Weather() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const API_KEY = "YOUR_API_KEY";
+ const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const getWeather = async (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ function Weather() {
     setWeather(null);
 
     try {
-      const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city.trim()}&appid=${API_KEY}&units=metric`;
+     const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city.trim()}&appid=${API_KEY}&units=metric`;
 
       const response = await axios.get(API_URL);
 
